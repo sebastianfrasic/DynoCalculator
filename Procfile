@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/* edu.eci.arep.SparkWebApp
+web: java -cp target/classes:target/dependency/* edu.eci.arep.controller.CalculatorController
