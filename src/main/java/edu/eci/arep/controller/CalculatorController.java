@@ -44,25 +44,34 @@ public class CalculatorController {
         String operacion = req.queryParams("operacion");
         double respuesta = 0.0;
 
-        switch (operacion) {
-            case "sin":
-                respuesta = Calculadora.calcularSeno(numero);
-                break;
-            case "cos":
-                respuesta = Calculadora.calcularCoseno(numero);
-                break;
-            case "tan":
-                respuesta = Calculadora.calcularTangente(numero);
-                break;
-            default:
-                json.append(operacion, 0);
-                break;
-        }
+        try{
+            switch (operacion) {
+                case "sin":
+                    respuesta = Calculadora.calcularSeno(numero);
+                    break;
+                case "cos":
+                    respuesta = Calculadora.calcularCoseno(numero);
+                    break;
+                case "tan":
+                    respuesta = Calculadora.calcularTangente(numero);
+                    break;
+                default:
+                    json.put(operacion, "Error");
+                    break;
+            }
 
-        json.append(operacion, respuesta);
+            json.append(operacion, respuesta);
+        }catch (Exception e){
+            json.put("Result", "ERROR");
+        }
         return json;
 
+
+
+
     }
+
+
 
 
     /**
