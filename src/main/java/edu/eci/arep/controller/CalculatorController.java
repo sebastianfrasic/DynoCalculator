@@ -60,7 +60,9 @@ public class CalculatorController {
                     break;
             }
 
-            json.append(operacion, respuesta);
+            json.put("resultado",respuesta);
+            json.put("operacion",operacion);
+
         }catch (Exception e){
             json.put("Result", "ERROR");
         }
