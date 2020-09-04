@@ -1,21 +1,19 @@
-# Taller #2 - AREP
-# INTRODUCTION TO COMPUTER SYSTEM DESIGN
+# Parcial 1 AREP
 
-Write a web application to calculate the mean and standard deviation of a set of n real numbers. Your program reads the n real numbers from a web page.
- 
-Use a linked list to store the n numbers for the calculations.
-
-Write a short article describing the architecture of the solution. Identify clearly abstractions of memory, communications channels and interpreters.
+1. Construir un servicio WEB (puede usar Spark o Sockets) que reciba un número y una cadena de tres caracteres. La cadena puede ser una de tres opciones: "cos", "sin", "tan". El servicio asume que el número que recibe está en radianes y retorna una estructura JSON con el valor de las función trigonométrica correspondiente. Para probar, y para ver como el browser arma el query, puede usar  un formulario de html.
+2. Construya otro servicio Web (puede usar Spark o Sockets) que sea una fachada del servicios construido en el primer punto. Es decir, este servicio recibe los mismos parámetros y regresa el mismo resultado, pero para hacer el cálculo debe invocar via http al servicio web que se constuyó en el primer punto.
+3. Su diseño debe soportar la composición de nuevas operaciones para modificar servicios existentes o componer nuevos servicios. Por ejemplo, piense que en el futuro podemos solicitar que se creen nuevos servicios sobre  el API web, es decir,  debe ser fácilmente extensible.
+4. El diseño de los servicios WEB debe tener en cuenta buenas prácticas de diseño OO.
+5. Despliegue los servicios en Heroku en dynos separados.
+6. Construya un cliente JAVA para probar los dos servicios.
+7. El cliente y los servicios debe entregarlos en dos proyectos estructurado con Maven. El primero con el servicio fachada y el cliente. Y el segundo con el servicio web concreto.
+8. El cliente debe traer "quemada" en el código fuente la url de su aplicación desplegada en Heroku.
+9. Entregue todo en GITHUB y el enlace a Heroku de cada uno de los servicios.
 
 ## Comenzando 🚀
 
-Para ver el artículo en Latex haga [click acá](/Taller2Arep.pdf)
-
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/sebastianfrasic/Taller-Heroku-AREP)
-
-
 Enlace de la aplicación en Heroku:
-[![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://fierce-ravine-15671.herokuapp.com/inputdata)
+[![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://dyno-calculator.herokuapp.com/calculator)
 
 ### Pre-requisitos 📋
 
@@ -30,7 +28,7 @@ Enlace de la aplicación en Heroku:
 1. Clonar el repositorio
 
 ```
-git clone https://github.com/sebastianfrasic/Taller-Heroku-AREP.git
+git clone https://github.com/sebastianfrasic/DynoCalculator.git
 ```
 
 2. En una terminal:
@@ -43,12 +41,12 @@ mvn package
 3. Para ejecutar la aplicación
 
 ```
-java -cp target/classes;target/dependency/* edu.eci.arep.SparkWebApp
+java -cp target/classes;target/dependency/* edu.eci.arep.controller.CalculatorController
 ```
 Para poder utilizar la aplicación dirígase a su navegador web de preferencia, y coloque:
 
 ```
-localhost:4567/inputdata
+localhost:4567/calculator
 ```
 
 4. Si desea ver la documentación _javadoc_ de la aplicación

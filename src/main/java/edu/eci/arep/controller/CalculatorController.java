@@ -10,7 +10,7 @@ public class CalculatorController {
 
     public static void main(String[] args) {
         port(getPort());
-        get("/inputdata", (req, res) -> inputDataPage());
+        get("/calculator", (req, res) -> inputDataPage());
         get("/results", (req, res) -> resultPage(req));
     }
 
